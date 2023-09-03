@@ -10,3 +10,4 @@ celery
 eventlet
 redis
 coverage
+telebot
