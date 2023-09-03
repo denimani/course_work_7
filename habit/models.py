@@ -17,7 +17,6 @@ class Habit(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Создатель привычки',
                              **NULLABLE)
     place = models.CharField(max_length=150, verbose_name='Место')
-    date = models.DateField(auto_now_add=True, verbose_name='Дата создания')
     time = models.TimeField(verbose_name='Время')
     action = models.CharField(max_length=150, unique=True, verbose_name='Действие')
     duration = models.PositiveIntegerField(default=120, verbose_name='Длительность выполнения, с')
@@ -28,7 +27,7 @@ class PleasantHabit(Habit):
     """
     Модель приятной привычки
     """
-    is_pleasant_habit = models.BooleanField(default=True, verbose_name='признак приятной привычки')
+    is_pleasant_habit = models.BooleanField(default=True, verbose_name='Признак приятной привычки')
 
     class Meta:
         verbose_name = 'Приятная привычка'

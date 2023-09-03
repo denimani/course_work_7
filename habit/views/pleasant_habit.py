@@ -2,21 +2,21 @@ from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView,
 
 from habit.models import PleasantHabit
 from habit.paginators import HabitPagination
-from habit.serializers.pleasant_habit import HabitSerializer
+from habit.serializers.pleasant_habit import PleasantCreateHabitSerializer
 
 
 class PleasantHabitListAPIView(ListAPIView):
     pagination_class = HabitPagination
-    serializer_class = HabitSerializer
+    serializer_class = PleasantCreateHabitSerializer
     queryset = PleasantHabit.objects.all()
 
 
 class PleasantHabitCreateAPIView(CreateAPIView):
-    serializer_class = HabitSerializer
+    serializer_class = PleasantCreateHabitSerializer
 
 
 class PleasantHabitRetrieveAPIView(RetrieveAPIView):
-    serializer_class = HabitSerializer
+    serializer_class = PleasantCreateHabitSerializer
     queryset = PleasantHabit.objects.all()
 
 
@@ -25,5 +25,5 @@ class PleasantHabitDestroyAPIView(DestroyAPIView):
 
 
 class PleasantHabitUpdateAPIView(UpdateAPIView):
-    serializer_class = HabitSerializer
+    serializer_class = PleasantCreateHabitSerializer
     queryset = PleasantHabit.objects.all()

@@ -2,21 +2,21 @@ from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView,
 
 from habit.models import UnpleasantHabit
 from habit.paginators import HabitPagination
-from habit.serializers.pleasant_habit import HabitSerializer
+from habit.serializers.unpleasant_habit import UnpleasantHabitCreateSerializer
 
 
 class UnpleasantHabitListAPIView(ListAPIView):
     pagination_class = HabitPagination
-    serializer_class = HabitSerializer
+    serializer_class = UnpleasantHabitCreateSerializer
     queryset = UnpleasantHabit.objects.all()
 
 
 class UnpleasantHabitCreateAPIView(CreateAPIView):
-    serializer_class = HabitSerializer
+    serializer_class = UnpleasantHabitCreateSerializer
 
 
 class UnpleasantHabitRetrieveAPIView(RetrieveAPIView):
-    serializer_class = HabitSerializer
+    serializer_class = UnpleasantHabitCreateSerializer
     queryset = UnpleasantHabit.objects.all()
 
 
@@ -25,5 +25,5 @@ class UnpleasantHabitDestroyAPIView(DestroyAPIView):
 
 
 class UnpleasantHabitUpdateAPIView(UpdateAPIView):
-    serializer_class = HabitSerializer
+    serializer_class = UnpleasantHabitCreateSerializer
     queryset = UnpleasantHabit.objects.all()
