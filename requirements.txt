@@ -11,3 +11,4 @@ eventlet
 redis
 coverage
 telebot
+django-celery-beat
