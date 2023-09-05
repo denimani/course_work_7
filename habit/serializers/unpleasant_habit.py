@@ -26,7 +26,7 @@ class UnpleasantHabitCreateSerializer(serializers.ModelSerializer):
 
         if attrs.get('pleasant_habit') and attrs.get('reward'):
             raise serializers.ValidationError("Нельзя одновременно выбрать связанную привычку и вознаграждение")
-        retAdurn attrs
+        return attrs
 
     class Meta:
         model = UnpleasantHabit
