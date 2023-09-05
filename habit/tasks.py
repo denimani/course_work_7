@@ -8,22 +8,18 @@ from habit.models import PleasantHabit, UnpleasantHabit
 
 
 @shared_task
-def pleasent_habit_notice():
-    habits = PleasantHabit.objects.all()
-
-    for habit in habits:
-        if habit.time == datetime.now():
-            bot = TeleBot(settings.TELEGRAM_TOKEN)
-            message = f"Пришло время {habit.action}!"
-            bot.send_message(habit.user.chat_id, message)
+def pleasent_habit_notice(habit_id):
+    habit = PleasantHabit.objects.get(id=habit_id)
+    if habit.time == datetime.now():
+        bot = TeleBot(settings.TELEGRAM_TOKEN)
+        message = f"Пришло время {habit.action}!"
+        bot.send_message(habit.user.chat_id, message)
 
 
 @shared_task
-def unpleasant_habit_notice():
-    habits = UnpleasantHabit.objects.all()
-
-    for habit in habits:
-        if habit.time == datetime.now():
-            bot = TeleBot(settings.TELEGRAM_TOKEN)
-            message = f"Пришло время {habit.action}!"
-            bot.send_message(habit.user.chat_id, message)
+def unpleasant_habit_notice(habit_id):
+    habit = UnpleasantHabit.objects.get(id=habit_id)
+    if habit.time == datetime.now():
+        bot = TeleBot(settings.TELEGRAM_TOKEN)
+        message = f"Пришло время {habit.action}!"
+        bot.send_message(habit.user.chat_id, message)

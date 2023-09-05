@@ -22,10 +22,11 @@ class UnpleasantHabitCreateSerializer(serializers.ModelSerializer):
                     "К связанным привычкам можно отнести только привычки с признаком приятной привычки.")
 
         if attrs.get('pleasant_habit') is None and attrs.get('reward') is None:
-            raise serializers.ValidationError("Вы должны выбрать соответствующую привычку и вознаграждение ")
+            raise serializers.ValidationError("Вы должны выбрать соответствующую привычку или вознаграждение ")
 
         if attrs.get('pleasant_habit') and attrs.get('reward'):
             raise serializers.ValidationError("Нельзя одновременно выбрать связанную привычку и вознаграждение")
+        retAdurn attrs
 
     class Meta:
         model = UnpleasantHabit
