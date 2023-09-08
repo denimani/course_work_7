@@ -1,5 +1,3 @@
-from pprint import pprint
-
 from rest_framework.test import APITestCase
 from rest_framework import status
 from django.urls import reverse
@@ -296,4 +294,3 @@ class HabitTestCase(APITestCase):
         self.client.force_authenticate(user=self.user)
         response = self.client.delete(reverse('habit:up_habit_delete', kwargs={'pk': self.unpleasant_habit.pk}))
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-
