@@ -32,4 +32,74 @@
 * Неприятные привычки
 * Пользователь
 
+## Инструкция по запуску приложения:
+Для запуска проекта необходимо клонировать репозиторий и создать и активировать виртуальное окружение: 
+```
+python3 -m venv venv
+
+venv/Scripts/activate - активация на Windows
+source venv/bin/activate - активация на Mac и Linux
+```
+Установить зависимости:
+```
+pip install -r requirements.txt
+```
+Для работы с переменными окружениями необходимо создать файл .env и заполнить его согласно файлу .env.sample:
+```
+#Secret_key
+SECRET_KEY=
+
+#Database
+DB_ENGINE=
+DB_NAME=
+DB_USER=
+DB_PASSWORD=
+DB_HOST=
+DB_PORT=
+
+#Telegram bot
+TELEGRAM_TOKEN=
+```
+Выполнить миграции:
+```
+python3 manage.py migrate
+```
+
+Для создания администратора запустить команду:
+
+```
+python3 manage.py csu
+```
+
+Для запуска redis:
+
+```
+redis-cli
+```
+
+Для запуска celery:
+
+```
+celery -A config worker --loglevel=info
+```
+
+Для запуска django-celery-beat:
+
+```
+celery -A config beat --loglevel=info
+```
+
+Для запуска приложения:
+
+```
+python3 manage.py runserver
+```
+
+_Для тестирования проекта запустить команду:_
+
+```
+python3 manage.py test
+```
+
+
 Документация проекта: http://127.0.0.1:8000/swagger/
