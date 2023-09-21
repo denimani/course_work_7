@@ -55,8 +55,8 @@ class HabitTestCase(APITestCase):
         """
         self.client.force_authenticate(user=self.user)
         response = self.client.post(reverse('habit:p_habit_create'), {'place': 'TestPlace',
-                                                                      'time': '21:00',
-                                                                      'action': 'Action1',
+                                                                      'time': '21:00:00',
+                                                                      'action': 'Action',
                                                                       'duration': 100})
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
@@ -94,22 +94,22 @@ class HabitTestCase(APITestCase):
              'next': None,
              'previous': None,
              'results': [
-                 {'id': 3,
+                 {'id': 9,
                   'place': 'TestPlace1',
                   'time': '07:00:00',
                   'action': 'Action',
                   'duration': 100,
                   'is_published': True,
                   'is_pleasant_habit': True,
-                  'user': 3},
-                 {'id': 4,
+                  'user': 5},
+                 {'id': 10,
                   'place': 'TestPlace1',
                   'time': '07:00:00',
                   'action': 'Action2',
                   'duration': 100,
                   'is_published': False,
                   'is_pleasant_habit': True,
-                  'user': 3}]})
+                  'user': 5}]})
 
     def test_list_pleasant_habit_2(self):
         """
@@ -123,14 +123,14 @@ class HabitTestCase(APITestCase):
              'next': None,
              'previous': None,
              'results': [
-                 {'id': 5,
+                 {'id': 13,
                   'place': 'TestPlace1',
                   'time': '07:00:00',
                   'action': 'Action',
                   'duration': 100,
                   'is_published': True,
                   'is_pleasant_habit': True,
-                  'user': 5}]}
+                  'user': 7}]}
         )
 
     def test_retrieve_pleasant_habit(self):
@@ -221,23 +221,23 @@ class HabitTestCase(APITestCase):
              'next': None,
              'previous': None,
              'results': [
-                 {'id': 3,
+                 {'id': 19,
                   'place': 'TestPlace',
                   'time': '07:00:00',
                   'action': 'Action0',
                   'duration': 100,
                   'reward': 'TestReward',
-                  'user': 1,
+                  'user': 9,
                   'frequency': 'EVERY DAY',
                   'is_published': True,
                   'pleasant_habit': None},
-                 {'id': 4,
+                 {'id': 20,
                   'place': 'TestPlace',
                   'time': '07:00:00',
                   'action': 'Action1',
                   'duration': 100,
                   'is_published': False,
-                  'user': 1,
+                  'user': 9,
                   'frequency': 'EVERY DAY',
                   'pleasant_habit': None,
                   'reward': None,
@@ -255,13 +255,13 @@ class HabitTestCase(APITestCase):
              'next': None,
              'previous': None,
              'results': [
-                 {'id': 3,
+                 {'id': 23,
                   'place': 'TestPlace',
                   'time': '07:00:00',
                   'action': 'Action0',
                   'duration': 100,
                   'reward': 'TestReward',
-                  'user': 1,
+                  'user': 11,
                   'frequency': 'EVERY DAY',
                   'is_published': True,
                   'pleasant_habit': None}
